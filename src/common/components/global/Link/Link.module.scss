@@ -1,0 +1,33 @@
+@import '../../../../styles/variables.scss';
+
+.link {
+    color: $grey;
+    font-size: 12px;
+    text-decoration: underline;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.common {
+    transition: all 0.4s;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.router {
+    color: $white;
+    font-size: 16px;
+
+    &:hover {
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+        -moz-background-clip: text !important;
+        -moz-text-fill-color: transparent !important;
+        background: $primary;
+    }
+}
