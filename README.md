@@ -6,7 +6,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Created **React** app with TypeScript and subscribe letter/support form using TS configurate.
 
-In this project I was used: 
+In this project, I used: 
 
 - **stylelint** extension for style a my .scss/css files
 - small own **library** for this project with enums, interfaces and types
