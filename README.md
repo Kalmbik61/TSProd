@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Created small App for client 
 
-Created **React** app with TypeScript and subscribe letter/support form using TS configurate.
+Created **React** app with TypeScript and subscribe letter/support form using TS configuration.
 
 In this project, I used: 
 
