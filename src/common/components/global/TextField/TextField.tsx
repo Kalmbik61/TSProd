@@ -10,21 +10,37 @@ export default function TextField({
   className,
   validation = false,
   validRegister,
+  autoComplete,
+  color,
   ...props
 }: TextFieldProps): JSX.Element {
   if (field === "input") {
     return (
-      <div className={cn(styles.input, styles.textField, className)}>
+      <div
+        className={cn(styles.input, styles.textField, className, {
+          [styles.primary]: color === "primary",
+        })}
+      >
         {validation ? (
-          <input placeholder={placeholder} type={type} {...validRegister} {...props} />
+          <input
+            placeholder={placeholder}
+            type={type}
+            {...validRegister}
+            autoComplete={autoComplete}
+            {...props}
+          />
         ) : (
-          <input placeholder={placeholder} type={type} {...props} />
+          <input placeholder={placeholder} type={type} autoComplete={autoComplete} {...props} />
         )}
       </div>
     );
   }
   return (
-    <div className={cn(styles.textarea, styles.textField, className)}>
+    <div
+      className={cn(styles.textarea, styles.textField, className, {
+        [styles.primary]: color === "primary",
+      })}
+    >
       {validation ? (
         <textarea placeholder={placeholder} {...validRegister} {...props} />
       ) : (

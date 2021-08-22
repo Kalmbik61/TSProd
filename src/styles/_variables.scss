@@ -1,9 +1,57 @@
 $white: #fff;
 $primary: -webkit-linear-gradient(106.69deg, #FFF500 -17.21%, #00FF5D 28.54%, #FF6BBE 58.35%);
-$hover-primary:-webkit-linear-gradient(106.69deg, #d3cc09 -17.21%, #00c749 28.54%, #e03596 58.35%);
-$grey:#bebebe;
-$font-fam:"Gruppo",
-"Montserrat",
-Arial,
-Helvetica,
+$hover-primary:-webkit-linear-gradient(#6DD400 0%, #F7B500 58.100%);
+$grey:#DDD9E3;
+$font-fam: "Montserrat",
 sans-serif;
+$border-primary:linear-gradient(#6DD400 0%, #F7B500 100%);
+$moz-border-primary: -moz-linear-gradient(#6DD400 0%, #F7B500 100%);
+$web-border-primary: -webkit-linear-gradient(#6DD400 0%, #F7B500 100%);
+
+@mixin primary-border {
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background: linear-gradient(#000, #000) padding-box,
+        $border-primary border-box;
+}
+
+@mixin rect-2-left {
+    content: "";
+    left: 0;
+    position: absolute;
+    width: 290px;
+    padding-top: 34.9%;
+    display: block;
+    z-index: -1;
+    background: url('../images/bg-image-rect-2.svg') left center no-repeat;
+    background-size: contain;
+}
+
+@mixin rect-2-right {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 267px;
+    width: 18.6vw;
+    padding-top: 40.9%;
+    background: url("../images/bg-image-rect-1.svg") right center no-repeat;
+    background-size: contain;
+}
+
+@mixin bg-dots {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 453px;
+    height: 403px;
+    margin: auto;
+    content: "";
+    z-index: -1;
+    background: url("../images/bg-dots-big.svg") center no-repeat;
+
+    @media(max-width:768px) {
+        width: 100%;
+    }
+}

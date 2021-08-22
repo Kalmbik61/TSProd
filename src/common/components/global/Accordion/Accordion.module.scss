@@ -1,0 +1,52 @@
+@import '../../../../styles/variables.scss';
+
+.accordion {
+    -webkit-transition: max-height .4s;
+    transition: max-height .4s;
+    max-height: 20px;
+    position: relative;
+    @include primary-border;
+    padding: 20px;
+    overflow: hidden;
+    cursor: pointer;
+
+    &.active {
+        max-height: max(300px);
+    }
+
+    .text {
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 26px;
+        color: $grey;
+    }
+
+    .header {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 20px;
+        align-items: center;
+
+        .icon {
+            width: 100%;
+            transform: rotate(180deg);
+            transition: all 0.4s;
+            display: flex;
+            align-items: center;
+
+            &.active {
+                transform: rotate(0);
+            }
+        }
+
+        .title {
+            font-size: 16px;
+        }
+    }
+
+    .description {
+        padding: 14px 45px;
+        line-height: 23px;
+        height: max-content;
+    }
+}

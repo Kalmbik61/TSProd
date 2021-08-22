@@ -1,0 +1,46 @@
+@import '../../../../styles/variables.scss';
+
+.faq {
+    display: grid;
+    justify-content: center;
+    max-width: 1440px;
+
+    .title {
+        font-weight: normal;
+        font-size: 50px;
+        line-height: 46px;
+        text-align: center;
+        margin: 50px 0;
+        position: relative;
+
+        &::before {
+            @include bg-dots;
+        }
+
+        @media(max-width:425px) {
+            font-size: 40px;
+        }
+    }
+
+    .descr {
+        max-width: 600px;
+        display: grid;
+        gap: 20px;
+
+        &::before {
+            @include rect-2-right;
+        }
+
+        @media(max-width:768px) {
+            max-width: 100%;
+        }
+
+        .accordion {
+            justify-self: center;
+
+            @media(max-width:768px) {
+                width: 80%;
+            }
+        }
+    }
+}
