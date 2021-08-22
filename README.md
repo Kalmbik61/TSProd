@@ -13,3 +13,5 @@ In this project, I used:
 - **classname** library for dynamic response for any changes 
 - **axios** for requests
 - **yup** and **react-form-hook** for HTML forms
+- **useMedia** custom hook for media queries
+- firebase for admin panel and creating new news
