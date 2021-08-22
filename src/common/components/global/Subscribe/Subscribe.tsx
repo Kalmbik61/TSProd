@@ -30,7 +30,7 @@ export default function Subscribe({ className }: SubscribeProps): JSX.Element {
   const [error, setError] = useState<string>("");
   const [success, setSuccess] = useState<string>("");
   const validationSchema = Yup.object().shape({
-    email: Yup.string().email("Email is invalid").required("Field is required"),
+    email: Yup.string().email("Email is invalid"),
     telegramOrNumber: Yup.string().notRequired(),
   });
   const {
@@ -75,11 +75,22 @@ export default function Subscribe({ className }: SubscribeProps): JSX.Element {
     reset({ email: "", also: "" });
   };
   return (
-    <div className={cn(className, styles.subscribe)} style={{ right: openSubs ? 0 : undefined }}>
-      <h4 onClick={clickSubs}>Subscribe to updates</h4>
+    <div
+      className={cn(className, styles.subscribe, {
+        [styles.openSubs]: openSubs,
+      })}
+    >
+      <h4
+        onClick={clickSubs}
+        className={cn({
+          [styles.openSubs]: openSubs,
+        })}
+      >
+        Subscribe to updates
+      </h4>
       <form
         className={cn(styles.subscribeBlock, {
-          [styles.ok]: !!postData.email,
+          [styles.ok]: !!postData.email || !!postData.also,
         })}
         onSubmit={handleSubmit(onSubmit)}
       >
@@ -89,6 +100,7 @@ export default function Subscribe({ className }: SubscribeProps): JSX.Element {
           placeholder='E-mail'
           validation
           validRegister={{ ...register("email") }}
+          autoComplete='off'
         />
         <ErrorMessage
           render={({ message }) => <div style={{ color: "red", marginTop: 3 }}>{message}</div>}
@@ -101,6 +113,7 @@ export default function Subscribe({ className }: SubscribeProps): JSX.Element {
           placeholder='Telegram ID or Phone number'
           validation
           validRegister={{ ...register("also") }}
+          autoComplete='off'
         />
         <button className={styles.button} type='submit'>
           Subscribe
@@ -108,7 +121,7 @@ export default function Subscribe({ className }: SubscribeProps): JSX.Element {
         {REACT_RECAPTCH_KEY && (
           <div
             className={cn(styles.recaptcha, {
-              [styles.active]: !!postData.email,
+              [styles.active]: !!postData.email || !!postData.also,
               [styles.reset]: !!error || !!success,
             })}
           >

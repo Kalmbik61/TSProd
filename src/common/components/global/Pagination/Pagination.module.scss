@@ -1,0 +1,57 @@
+@import '../../../../styles/variables.scss';
+
+.pagination {
+    width: 100%;
+    display: flex;
+
+    .link {
+        display: flex;
+        align-items: center;
+
+        &:hover {
+            cursor: pointer;
+
+            div {
+                -webkit-background-clip: text !important;
+                -webkit-text-fill-color: transparent !important;
+                -moz-background-clip: text !important;
+                -moz-text-fill-color: transparent !important;
+                background: $hover-primary;
+            }
+        }
+    }
+
+    .numbers {
+        margin: 0 20px;
+
+        .number {
+            margin: 0 5px;
+            padding: 4px 8px;
+            cursor: pointer;
+
+            &:hover {
+                -webkit-background-clip: text !important;
+                -webkit-text-fill-color: transparent !important;
+                -moz-background-clip: text !important;
+                -moz-text-fill-color: transparent !important;
+                background: $hover-primary;
+            }
+
+            &.active {
+                border: 1px solid transparent;
+                border-radius: 50%;
+                background: linear-gradient(#000, #000) padding-box,
+                    $border-primary border-box;
+
+                &:hover {
+                    background: linear-gradient(#000, #000) padding-box,
+                        $border-primary border-box !important;
+                    -webkit-background-clip: initial !important;
+                    -webkit-text-fill-color: initial !important;
+                    -moz-background-clip: initial !important;
+                    -moz-text-fill-color: initial !important;
+                }
+            }
+        }
+    }
+}

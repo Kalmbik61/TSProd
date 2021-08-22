@@ -7,6 +7,8 @@ export interface TextFieldProps {
   className?: string;
   validation?: boolean;
   validRegister?: object;
+  autoComplete?: "off";
+  color?: "primary";
 }
 
 export enum FieldsTypes {

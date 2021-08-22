@@ -1,0 +1,62 @@
+@import '../../../../styles/_variables.scss';
+
+.header_burger {
+  display: none;
+  margin-left: sizePhone(25);
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    &.active:before {
+      transform: rotate(45deg);
+      top: 9px;
+    }
+
+    &.active {
+      height: 19.5px;
+
+      span {
+        transform: scale(0);
+      }
+    }
+
+    &.active:after {
+      transform: rotate(-45deg);
+      bottom: 8px;
+    }
+
+    display: block;
+    z-index: 5;
+    position: relative;
+    width: 20px;
+    height: 17px;
+
+    &:before,
+    &:after {
+      content: "";
+      background: $hover-primary;
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      left: 0;
+      transition: all 0.3s ease 0s;
+    }
+
+    &::before {
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+
+    span {
+      position: absolute;
+      background: $hover-primary;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      top: 8px;
+      transition: all 0.3s ease 0s;
+    }
+  }
+}

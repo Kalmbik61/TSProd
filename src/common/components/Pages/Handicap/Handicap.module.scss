@@ -1,0 +1,79 @@
+@import '../../../../styles/variables.scss';
+
+.handicap {
+    display: grid;
+    max-width: 1440px;
+    justify-content: center;
+
+    img {
+        max-width: 500px;
+
+        @media(max-width:768px) {
+            width: 100%;
+        }
+
+    }
+
+    .title {
+        font-weight: normal;
+        font-size: 50px;
+        line-height: 46px;
+        margin: 0 auto;
+        text-align: center;
+
+        &::before {
+            @include rect-2-right;
+        }
+
+        @media(max-width:425px) {
+            font-size: 40px;
+        }
+    }
+
+    .content {
+        margin: 50px auto;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 35px;
+        position: relative;
+
+        &::after {
+            @include bg-dots;
+        }
+
+        @media(max-width:500px) {
+            grid-template-columns: 1fr;
+        }
+
+        .descr {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            align-items: center;
+
+            @media(max-width:500px) {
+                grid-template-rows: 1fr;
+                grid-template-columns: 1fr;
+                justify-content: center;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            ul {
+                display: grid;
+                gap: 20px;
+                list-style-type: disc;
+                font-weight: 300;
+                font-size: 16px;
+                line-height: 21px;
+
+                @media(max-width:500px) {
+                    font-size: 14px;
+                    gap: 0;
+                }
+
+            }
+        }
+
+    }
+}

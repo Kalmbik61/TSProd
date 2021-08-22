@@ -36,6 +36,7 @@ export default function SupportModal({ isOpen, onClose }: SupportModalProps) {
   });
   const [fileError, setFileError] = useState<string>("");
   const [fileSuccess, setFileSuccess] = useState<string>("");
+  const [files, setFiles] = useState<File[]>([]);
   const [error, setError] = useState<string>("");
   const [success, setSuccess] = useState<string>("");
   const [recaptcha, setRecaptcha] = useState<string>("");
@@ -53,7 +54,6 @@ export default function SupportModal({ isOpen, onClose }: SupportModalProps) {
       message: "",
     },
   });
-
   useEffect(() => {
     document.addEventListener("click", (e) => {
       if (supBlock.current === e.target) {
@@ -69,6 +69,8 @@ export default function SupportModal({ isOpen, onClose }: SupportModalProps) {
       setError("");
       setSuccess("");
       setLoading(false);
+      reset({ email: "", name: "", message: "" });
+      setFiles([]);
     }
   }, [isOpen]);
   useEffect(() => {
@@ -76,7 +78,9 @@ export default function SupportModal({ isOpen, onClose }: SupportModalProps) {
     if (acceptedFiles[0].size > 5 * 1024 * 1024) {
       setFileError("The file is too large!");
       setTimeout(() => setFileError(""), 1000);
+      setFiles([]);
     } else {
+      setFiles(acceptedFiles);
       setFileSuccess("File was sucsessuly upload");
       setTimeout(() => setFileSuccess(""), 1000);
     }
@@ -97,9 +101,10 @@ export default function SupportModal({ isOpen, onClose }: SupportModalProps) {
     try {
       const res = await api.sendSupport(dataForm);
       if (res.Status === "error") {
-        setError(res.Message);
+        setError("Some error. Please, try again later");
         setLoading(false);
         reset({ email: "", name: "", message: "" });
+        console.error(res.Message);
       } else {
         setSuccess("Your message was successfully sent!");
         setLoading(false);
@@ -159,7 +164,7 @@ export default function SupportModal({ isOpen, onClose }: SupportModalProps) {
           <img src={close} alt='...' />
         </span>
         <h2> Support</h2>
-        {fields.map(({ field, placeholder, type, validation, register, errorType }) => {
+        {fields.map(({ field, placeholder, type, validation, register, errorType }, index) => {
           return (
             <>
               <TextField
@@ -169,17 +174,14 @@ export default function SupportModal({ isOpen, onClose }: SupportModalProps) {
                 type={type}
                 validation={validation}
                 validRegister={register}
+                autoComplete='off'
               />
               {onError(errorType)}
             </>
           );
         })}
-        {acceptedFiles.length > 0 && (
-          <img
-            className={styles.preview_file}
-            src={URL.createObjectURL(acceptedFiles[0])}
-            alt='file'
-          />
+        {files.length > 0 && (
+          <img className={styles.preview_file} src={URL.createObjectURL(files[0])} alt='file' />
         )}
         {(!!fileError || !!fileSuccess) && (
           <span
@@ -198,7 +200,7 @@ export default function SupportModal({ isOpen, onClose }: SupportModalProps) {
               width='21'
               height='21'
               viewBox='0 0 21 21'
-              fill='#000'
+              fill='#DDD9E3'
               xmlns='http://www.w3.org/2000/svg'
               style={{ marginRight: 10 }}
             >

@@ -1,16 +1,24 @@
-import React from "react";
 import Slider from "react-slick";
-import { ReactComponent as NextSlide } from "../../../images/next.svg";
-import { ReactComponent as PrevSlide } from "../../../images/prev.svg";
+import { ReactComponent as NextSlide } from "../../../../images/next.svg";
+import { ReactComponent as PrevSlide } from "../../../../images/prev.svg";
+import svgTitle from "../../../../images/svg-title.svg";
+import box1 from "../../../../images/imgs/1.png";
+import box2 from "../../../../images/imgs/2.png";
+import box4 from "../../../../images/imgs/4.png";
+import box5 from "../../../../images/imgs/5.png";
+import styles from "./TechPage.module.scss";
 
-import svgTitle from "../../../images/svg-title.svg";
-import box1 from "../../../images/imgs/1.png";
-import box2 from "../../../images/imgs/2.png";
-// import box3 from "../../../images/imgs/3.png";
-import box4 from "../../../images/imgs/4.png";
-import box5 from "../../../images/imgs/5.png";
-
-import classes from "./TechPage.module.scss";
+import animation1 from "./lottie/box_1/ani1.json";
+import animation1_1 from "./lottie/box_1/ani1_1.json";
+import animation2 from "./lottie/box_2/ani2.json";
+import animation2_2 from "./lottie/box_2/ani2_2.json";
+import animation3 from "./lottie/box_3/ani3.json";
+import animation3_3 from "./lottie/box_3/ani3_3.json";
+import animation4 from "./lottie/box_4/ani4.json";
+import animation4_4 from "./lottie/box_4/ani4_4.json";
+import animation5 from "./lottie/box_5/ani5.json";
+import animation5_5 from "./lottie/box_5/ani5_5.json";
+import Lottie from "./lottie/Lottie";
 
 export default function TechPage(): JSX.Element {
   const boxes = [box1, box2, box4, box5];
@@ -35,13 +43,10 @@ export default function TechPage(): JSX.Element {
       </div>
       <div className='container-wrapper container-wrapper_mb_med'>
         <section className='container'>
-          <div className='image-wrapper image-wrapper_1'>
-            <div id='lottie-1' className='image image_first'></div>
-            <div id='lottie-1-1' className='image image_second hide'></div>
-          </div>
+          <Lottie animation={[animation1, animation1_1]} />
         </section>
       </div>
-      <div className={`container-wrapper container-wrapper_mb_big ${classes.container_rewright}`}>
+      <div className={`container-wrapper container-wrapper_mb_big ${styles.container_rewright}`}>
         <section className='container'>
           <h1 className='title title_first color_first'>Traceless BOX is</h1>
           <ul className='list'>
@@ -71,8 +76,8 @@ export default function TechPage(): JSX.Element {
           </ul>
         </section>
       </div>
-      <div className={`container-wrapper container-wrapper_mb_big ${classes.container_rewright}`}>
-        <section className={`container ${classes.sliderWrapper}`}>
+      <div className={`container-wrapper container-wrapper_mb_big ${styles.container_rewright}`}>
+        <section className={`container ${styles.sliderWrapper}`}>
           <Slider
             dots={false}
             infinite
@@ -85,7 +90,7 @@ export default function TechPage(): JSX.Element {
           >
             {boxes.map((box, i) => (
               <div key={i} style={{ textAlign: "center", margin: "auto" }}>
-                <img src={box} alt='box' className={classes.img} />
+                <img src={box} alt='box' className={styles.img} />
               </div>
             ))}
           </Slider>
@@ -94,10 +99,8 @@ export default function TechPage(): JSX.Element {
       <div className='container-wrapper container-wrapper_mb_large'>
         <section className='container'>
           <h1 className='title title_first'>Protection for IOT devices</h1>
-          <div className='image-wrapper image-wrapper_2'>
-            <div id='lottie-2' className='image image_first'></div>
-            <div id='lottie-2-2' className='image image_second hide'></div>
-          </div>
+          <Lottie animation={[animation2, animation2_2]} />
+
           <ul className='list'>
             <li className='list__item'>
               <div className='list__title'>
@@ -131,10 +134,7 @@ export default function TechPage(): JSX.Element {
       <div className='container-wrapper container-wrapper_mb_large'>
         <section className='container'>
           <h1 className='title title_first'>Privacy for you</h1>
-          <div className='image-wrapper image-wrapper_3'>
-            <div id='lottie-3' className='image image_first'></div>
-            <div id='lottie-3-3' className='image image_second hide'></div>
-          </div>
+          <Lottie animation={[animation3, animation3_3]} />
           <ul className='list'>
             <li className='list__item'>
               <div className='list__title'>Host encrypted content on the Traceless Box</div>
@@ -179,10 +179,7 @@ export default function TechPage(): JSX.Element {
       <div className='container-wrapper container-wrapper_mb_small'>
         <section className='container'>
           <h1 className='title title_first'>Post-Quantium encryption for your traffic</h1>
-          <div className='image-wrapper image-wrapper_4'>
-            <div id='lottie-4' className='image image_first'></div>
-            <div id='lottie-4-4' className='image image_second hide'></div>
-          </div>
+          <Lottie animation={[animation4, animation4_4]} />
         </section>
       </div>
       <div className='container-wrapper container-wrapper_mb_small'>
@@ -202,10 +199,7 @@ export default function TechPage(): JSX.Element {
       </div>
       <div className='container-wrapper container-wrapper_mb_small'>
         <section className='container'>
-          <div className='image-wrapper image-wrapper_5 image-wrapper_dots'>
-            <div id='lottie-5' className='image image_first'></div>
-            <div id='lottie-5-5' className='image image_second hide'></div>
-          </div>
+          <Lottie animation={[animation5, animation5_5]} />
           <ul className='list' style={{ marginTop: 0 }}>
             <li className='list__item'>
               <div className='list__title'>

@@ -2,6 +2,7 @@
 * @author: Shushas Roman
 * @email: Shushasrp@gmail.com
 */
+@import url('https://fonts.googleapis.com/css2?family=Gruppo&display=swap');
 
 /* <Reset */
 html,
@@ -87,12 +88,8 @@ video,
 html * {
 	margin: 0;
 	padding: 0;
-
 	vertical-align: baseline;
-
 	border: 0;
-
-	font: inherit;
 	font-size: 100%;
 }
 
@@ -162,7 +159,7 @@ body {
 	color: #DDD9E3;
 	background: #05000F;
 
-	font: 300 16px "Montserrat", Arial, Helvetica, sans-serif;
+	font: 300 16px "Montserrat", sans-serif;
 }
 
 a {
@@ -591,6 +588,24 @@ button:focus {
 
 /* Footer> */
 
-html {
-	overflow-x: hidden;
+html,
+body {
+	overflow-x: hidden !important;
+}
+
+h1,
+h2 {
+	font-family: 'Gruppo', sans-serif !important;
+}
+
+.container-lottie {
+	min-width: 1200px;
+	min-height: 650px;
+}
+
+@media (max-width: 1200px) {
+	.container-lottie {
+		min-width: initial !important;
+		min-height: initial !important;
+	}
 }

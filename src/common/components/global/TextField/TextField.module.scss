@@ -1,8 +1,25 @@
 @import '../../../../styles/variables.scss';
 
 .textField {
-
     padding: 10px 0;
+    color: $grey;
+
+    &.primary {
+        @include primary-border;
+
+        &.input {
+            input {
+                padding: 0 10px;
+                width: 100%;
+                height: 100%;
+            }
+
+            &::after {
+                display: none;
+            }
+        }
+
+    }
 
     &.input {
         color: #000;
@@ -32,8 +49,9 @@
 
         textarea {
             resize: none;
-            width: 100%;
             height: 100%;
+            width: 100%;
+            background: transparent;
 
             &::placeholder {
                 font-weight: 600;
